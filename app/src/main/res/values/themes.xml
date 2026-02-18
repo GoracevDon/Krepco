@@ -1,0 +1,7 @@
+<resources>
+    <style name="Base.Theme.Krepco" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your theme here -->
+    </style>
+
+    <style name="Theme.Krepco" parent="Base.Theme.Krepco" />
+</resources>

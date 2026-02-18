@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CalculatorActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Место под заголовок -->
+            <LinearLayout
+                android:id="@+id/linearLayoutHeader"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/imgIcn3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/krepco_icn" />
+
+                <TextView
+                    android:id="@+id/tvSlogan3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/Slogan"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <!-- Тип калькулятора -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/gray"
+                    android:text="@string/Type1"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spinnerCalculatorType"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/gray"
+                    android:padding="8dp"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/gray"
+                    android:text="@string/Type2"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spinnerOperationType"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/gray"
+                    android:padding="8dp"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutExtraInputs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/gray"
+                    android:text="Дополнительные параметры:"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="4dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <EditText
+                        android:id="@+id/editExtra1"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="4dp"
+                        android:background="@color/gray"
+                        android:drawableBottom="@drawable/white_line"
+                        android:drawablePadding="8dp"
+                        android:ems="10"
+                        android:hint="Значение 1"
+                        android:inputType="numberDecimal"
+                        android:padding="16dp"
+                        android:paddingBottom="8dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white" />
+
+                    <EditText
+                        android:id="@+id/editExtra2"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="4dp"
+                        android:background="@color/gray"
+                        android:drawableBottom="@drawable/white_line"
+                        android:drawablePadding="8dp"
+                        android:ems="10"
+                        android:hint="Значение 2"
+                        android:inputType="numberDecimal"
+                        android:padding="16dp"
+                        android:paddingBottom="8dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@color/orange"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvExpression"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="end|center_vertical"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/editResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@null"
+                    android:gravity="end|center_vertical"
+                    android:inputType="numberDecimal"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutArithmetic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <!-- Ряд 1 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn7"
+                        style="@style/CalculatorButton"
+                        android:layout_weight="1"
+                        android:text="7" />
+
+                    <Button
+                        android:id="@+id/btn8"
+                        style="@style/CalculatorButton"
+                        android:layout_weight="1"
+                        android:text="8" />
+
+                    <Button
+                        android:id="@+id/btn9"
+                        style="@style/CalculatorButton"
+                        android:layout_weight="1"
+                        android:text="9" />
+
+                    <Button
+                        android:id="@+id/btnDivide"
+                        style="@style/CalculatorButton"
+                        android:layout_weight="1"
+                        android:text="/" />
+                </LinearLayout>
+
+                <!-- Ряд 2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn4"
+                        style="@style/CalculatorButton"
+                        android:layout_weight="1"
+                        android:text="4" />
+
+                    <Button
+                        android:id="@+id/btn5"
+                        style="@style/CalculatorButton"
+                        android:layout_weight="1"
+                        android:text="5" />
+
+                    <Button
+                        android:id="@+id/btn6"
+                        style="@style/CalculatorButton"
+                        android:layout_weight="1"
+                        android:text="6" />
+
+                    <Button
+                        android:id="@+id/btnMultiply"
+                        style="@style/CalculatorButton"
+                        android:layout_weight="1"
+                        android:text="*" />
+                </LinearLayout>
+
+                <!-- Ряд 3 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn1"
+                        style="@style/CalculatorButton"
+                        android:layout_weight="1"
+                        android:text="1" />
+
+                    <Button
+                        android:id="@+id/btn2"
+                        style="@style/CalculatorButton"
+                        android:layout_weight="1"
+                        android:text="2" />
+
+                    <Button
+                        android:id="@+id/btn3"
+                        style="@style/CalculatorButton"
+                        android:layout_weight="1"
+                        android:text="3" />
+
+                    <Button
+                        android:id="@+id/btnMinus"
+                        style="@style/CalculatorButton"
+                        android:layout_weight="1"
+                        android:text="-" />
+                </LinearLayout>
+
+                <!-- Ряд 4 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn0"
+                        style="@style/CalculatorButton"
+                        android:layout_weight="1"
+                        android:text="0" />
+
+                    <Button
+                        android:id="@+id/btnDot"
+                        style="@style/CalculatorButton"
+                        android:layout_weight="1"
+                        android:text="." />
+
+                    <Button
+                        android:id="@+id/btnEquals"
+                        style="@style/CalculatorButton"
+                        android:layout_weight="1"
+                        android:text="="
+                        android:backgroundTint="@color/orange" />
+
+                    <Button
+                        android:id="@+id/btnPlus"
+                        style="@style/CalculatorButton"
+                        android:layout_weight="1"
+                        android:text="+" />
+                </LinearLayout>
+
+                <!-- Ряд 5 (Управление) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnClear"
+                        style="@style/CalculatorButton"
+                        android:layout_weight="1"
+                        android:text="C" />
+
+                    <Button
+                        android:id="@+id/btnBackspace"
+                        style="@style/CalculatorButton"
+                        android:layout_weight="1"
+                        android:text="⌫" />
+
+                    <Button
+                        android:id="@+id/btnPlusMinus"
+                        style="@style/CalculatorButton"
+                        android:layout_weight="1"
+                        android:text="±" />
+
+                    <Button
+                        android:id="@+id/btnPercent"
+                        style="@style/CalculatorButton"
+                        android:layout_weight="1"
+                        android:text="%" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutPowerRoot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/btnPower2"
+                    style="@style/CalculatorButton"
+                    android:layout_weight="1"
+                    android:text="x²" />
+
+                <Button
+                    android:id="@+id/btnPower3"
+                    style="@style/CalculatorButton"
+                    android:layout_weight="1"
+                    android:text="x³" />
+
+                <Button
+                    android:id="@+id/btnPowerY"
+                    style="@style/CalculatorButton"
+                    android:layout_weight="1"
+                    android:text="x^y" />
+
+                <Button
+                    android:id="@+id/btnSqrt"
+                    style="@style/CalculatorButton"
+                    android:layout_weight="1"
+                    android:text="√" />
+            </LinearLayout>
+
+            <!-- Второй ряд для дополнительных корней -->
+            <LinearLayout
+                android:id="@+id/linearLayoutRoots"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/btnSqrt3"
+                    style="@style/CalculatorButton"
+                    android:layout_weight="1"
+                    android:text="∛" />
+
+                <Button
+                    android:id="@+id/btnSqrtY"
+                    style="@style/CalculatorButton"
+                    android:layout_weight="1"
+                    android:text="y√x" />
+
+                <Button
+                    android:id="@+id/btnEmpty1"
+                    style="@style/CalculatorButton"
+                    android:layout_weight="1"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/btnEmpty2"
+                    style="@style/CalculatorButton"
+                    android:layout_weight="1"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutLogarithmic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/btnLog"
+                    style="@style/CalculatorButton"
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="log" />
+
+                <Button
+                    android:id="@+id/btnLn"
+                    style="@style/CalculatorButton"
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="8dp"
+                    android:text="ln" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutTrigonometric"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/btnSin"
+                    style="@style/CalculatorButton"
+                    android:layout_weight="1"
+                    android:text="sin" />
+
+                <Button
+                    android:id="@+id/btnCos"
+                    style="@style/CalculatorButton"
+                    android:layout_weight="1"
+                    android:text="cos" />
+
+                <Button
+                    android:id="@+id/btnTan"
+                    style="@style/CalculatorButton"
+                    android:layout_weight="1"
+                    android:text="tan" />
+
+                <Button
+                    android:id="@+id/btnDegRad"
+                    style="@style/CalculatorButton"
+                    android:layout_weight="1"
+                    android:text="DEG" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutFinancial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/linearLayoutConstruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnBack"
+                    style="@style/CalculatorButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="На главную"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

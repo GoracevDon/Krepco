@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearlayoutgg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linearLayoutHeader"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginBottom="11dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgIcn"
+                    android:layout_width="359dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/krepco_icn" />
+
+                <TextView
+                    android:id="@+id/tvSlogan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/Slogan"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="441dp"
+                android:layout_height="682dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="4dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgSbtlt1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/subtitle1" />
+
+                <ImageButton
+                    android:id="@+id/imgBtnCalc"
+                    android:layout_width="268dp"
+                    android:layout_height="134dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/btn_mm1" />
+
+                <ImageButton
+                    android:id="@+id/imgBtnConv"
+                    android:layout_width="270dp"
+                    android:layout_height="110dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/btn_mm2" />
+
+                <ImageView
+                    android:id="@+id/imgSbtlt2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/subtitle2" />
+
+                <ImageButton
+                    android:id="@+id/imgBtnQuest"
+                    android:layout_width="270dp"
+                    android:layout_height="163dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/btn_mm3" />
+
+                <ImageButton
+                    android:id="@+id/imgBtnInfo"
+                    android:layout_width="265dp"
+                    android:layout_height="91dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/btn_mm4" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
